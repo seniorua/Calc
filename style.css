@@ -1,0 +1,42 @@
+.container{
+  color: #fff;
+  background-color: rgb(46, 44, 44);
+  padding: 5px;
+}
+.keys{
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+.key{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  text-align: center;
+  width: 60px;
+  height: 40px;
+  background-color: rgb(85, 85, 85);
+}
+
+.key:hover{
+  background-color: rgb(131, 131, 131);
+}
+
+.key:active{
+  background-color: rgb(136, 90, 90);
+}
+
+.screen{
+  /* border: 1px solid rgb(72, 103, 241); */
+  padding: 5px;
+}
+
+.field1, .field2{
+  text-align: end;
+  width: 100%;
+  height: 30px;
+}
+.field1{
+  font-size: 30px;
+}
