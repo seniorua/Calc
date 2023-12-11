@@ -1,4 +1,5 @@
-const string = '9 8 7 6 5 4 3 2 1 0 = + - × ÷ % √ x² ± , C CE ⌫';
+// const string = '9 8 7 6 5 4 3 2 1 0 = + - × ÷ % √ x² ± , C CE ⌫';
+const string = '9 8 7 6 5 4 3 2 1 0 = + - × ÷ √ ^ ± . C ⌫';
 const symbols = string.split(' ');
 console.log('symbols: ', symbols);
 
@@ -30,6 +31,7 @@ symbols.forEach((element, i) => {
 keys.addEventListener('click', (e) => {
   console.log('e: ', e);
   let target = e.target.innerText;
+  calculate(target);
   console.log('target: ', target);
   switch(target){
     case('9'):
@@ -56,4 +58,16 @@ keys.addEventListener('click', (e) => {
     case('CE'):
     default: break;
   }
-})
+});
+
+document.addEventListener('keydown', (e) => {
+  if(symbols.includes(e.key))
+  console.log(e.key);
+  calculate(e.key)
+});
+
+function calculate(n){
+  if(n === "="){
+    console.log('Равно...');
+  }
+}
