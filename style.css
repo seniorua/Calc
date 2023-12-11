@@ -1,6 +1,12 @@
+:active, :hover, :focus {
+  outline: 0;
+  outline-offset: 0;
+}
 .container{
+  border: 3px solid #9c9c9c;
+  width: 400px;
   color: #fff;
-  background-color: rgb(46, 44, 44);
+  background-color: rgb(61, 60, 60);
   padding: 5px;
 }
 .keys{
@@ -33,6 +39,9 @@
 }
 
 .field1, .field2{
+  background-color: transparent;
+  color: #fff;
+  border: 0 none;
   text-align: end;
   width: 100%;
   height: 30px;
