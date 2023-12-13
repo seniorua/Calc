@@ -1,5 +1,13 @@
 // const string = '9 8 7 6 5 4 3 2 1 0 = + - × ÷ % √ x² ± , C CE ⌫';
 const string = '9 8 7 6 5 4 3 2 1 0 = + - × ÷ √ ^ ± . C ⌫';
+let a = 0;
+let b = 0;
+let buffer = 0;
+let result = 0;
+let go = false;
+another = true;
+let yes = false;
+// console.log('go: ', typeof(go));
 const symbols = string.split(' ');
 // console.log('symbols: ', symbols);
 
@@ -34,9 +42,10 @@ symbols.forEach((element, i) => {
 });
 
 keys.addEventListener('click', (e) => {
-  console.log('e: ', e);
+  // console.log('e: ', e);
   let target = e.target.innerText;
-  calculate(target);
+  // if (symbols.includes)
+  input(target);
   // console.log('target: ', target);
   
 });
@@ -44,13 +53,15 @@ keys.addEventListener('click', (e) => {
 document.addEventListener('keydown', (e) => {
   if(symbols.includes(e.key))
   // console.log(e.key);
-  calculate(e.key)
+  input(e.key)
 });
 
-function calculate(n){
-  // if(n === "="){
-  //   console.log('Равно...');
+function input(n){
+  // if (go) {
+  //   field1.value = 0;
+  //   go = false;
   // }
+
   switch(n){
     case('9'):
       field1.value += '9';
@@ -83,15 +94,34 @@ function calculate(n){
       field1.value += '0';
       break;
     case('='):
+      field1.value = result;
+      // result = 0;
       // console.log('Равно...');
       break;
     case('+'):
+      calculate(n);
+    // if(yes){
+      
+    //   b = field1.value;      console.log('b: ', b);
+    // } else {
+    //   a = field1.value;      console.log('a: ', a);
+    //   yes = true;
+    // }
+      // add();
+      // add();
       break;
     case('-'):
+      calculate(n);
+
+      // deduct();
       break;
     case('×'):
+      calculate(n);
+      // multiply();
       break;
     case('÷'):
+    calculate(n);
+      // divide();
       break;
     case('%'):
       break;
@@ -106,6 +136,7 @@ function calculate(n){
       break;
     case('C'):
       field1.value = '0';
+      result = 0;
       break;
     // case('CE'):
     //   break;
@@ -117,11 +148,68 @@ function calculate(n){
       break;
     default: break;
   }
-  // если символы добавляються, то 0 спереди удаляется,
+  // если символы добавляются, то 0 спереди удаляется,
   // если только 0 не перед точкой
   if(field1.value.length > 1 && field1.value[0] === '0' && field1.value[1] !== '.'){
     a = field1.value.slice(1);
     field1.value = a;
     // console.log('a: ', a);
+  // buffer = field1.value;
+  // console.log('buffer: ', buffer);
   }
 }
+
+function calculate(x){
+  switch(x){
+    case('+'):
+      console.log('+++++++');
+      break;
+    case('-'):
+      break;
+    case('×'):
+      break;
+    case('÷'):
+      break;
+    default: break;
+  }
+    
+}
+
+// function add(){
+//   // buffer = field1.value;  console.log('buffer: ', buffer);
+//   result = +buffer + +result;
+//   field1.value = result;
+//   go = true;
+// }
+
+function deduct(){
+  if(!go){
+    buffer = field1.value;
+    // console.log('buffer: ', buffer);
+    result = +buffer - +result;
+    console.log('result: ', result);
+    field1.value = result;
+    console.log('field1.value: ', field1.value);
+  }
+  go = true;
+}
+
+function multiply(){
+  buffer = field1.value;
+  result = +result * (+buffer);
+  field1.value = result;
+  go = true;
+}
+
+function divide(){
+  buffer = field1.value;
+  result = +result / (+buffer);
+  field1.value = result;
+  go = true;
+}
+
+
+
+
+
+// Прототипная часть наследования
